@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const whitelistContract = await ethers.getContractFactory("Whitelist.sol");
+  const whitelistContract = await ethers.getContractFactory("Whitelist");
 
   const deployedContract = await whitelistContract.deploy(20);
 
@@ -16,3 +16,5 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+  //0xfE16a8D847eBeC7110D03C3fE0239872B44dEBe4
