@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import styles from "../styles/Home.module.css";
 import Web3Modal from "web3modal";
-import {providers} from "ethers";
+import {Contract, providers} from "ethers";
 
 export default function Home() {
   const [walletConnected, setWalletConnected] = useState(false);
@@ -20,6 +20,19 @@ export default function Home() {
       console.error(err);
     }
   };
+
+  const checkIfAddressIsWhitelisted = async () => {
+    try {
+      const signer = getProviderOrSigner(true);
+      const whitelistContract = new Contract(
+        
+      )
+      
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
 
   const getProviderOrSigner = async (needSigner = false) => {
     try {
