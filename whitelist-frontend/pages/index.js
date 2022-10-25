@@ -25,8 +25,8 @@ export default function Home() {
     try {
       const signer = getProviderOrSigner(true);
       const whitelistContract = new Contract(
-        
-      )
+
+      );
       
     } catch (err) {
       console.error(err);
