@@ -53,6 +53,7 @@ export default function Home() {
       );
       const _numberOfWhitelisted =
       await whitelistContract.numWhitelistedAddresses(); 
+      console.log("nume of witelisted is ", _numberOfWhitelisted);
       setNumOfWhitelisted(_numberOfWhitelisted);
     } catch (err) {
       console.log(err);
@@ -140,13 +141,16 @@ export default function Home() {
       <Head>
         <title>Whitelist dApp</title>
         <meta name="description" content="Whitelist-Dapp" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
-        <h1 className={styles.title}>Welcome to whitlist 101</h1>
+      <div>
+        <h1 className={styles.title}>Whitlist 101</h1>
         <div className={styles.description}>
           {numOfWhitelisted} have already joined the whitelist
         </div>
         {renderButton()}
+        </div>
         <div>
           <img className={styles.image} src="./crypto-devs.svg" />
         </div>

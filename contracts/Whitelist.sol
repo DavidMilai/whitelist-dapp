@@ -2,9 +2,9 @@
 pragma solidity ^0.8.4;
 
 contract Whitelist {
-    uint8 maxListedAddresses;
+    uint8 public  maxListedAddresses;
 
-    uint8 numWhitelistedAddresses;
+    uint8 public numWhitelistedAddresses;
 
     mapping(address => bool) public whitelistedAddresses;
 
