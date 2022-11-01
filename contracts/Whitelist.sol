@@ -1,28 +1,22 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.4;
-
+ 
 contract Whitelist {
-    uint8 public  maxListedAddresses;
-
-    uint8 public numWhitelistedAddresses;
-
+ 
+    uint8 public maxWhitelistedAddresses;
+ 
     mapping(address => bool) public whitelistedAddresses;
-
-    constructor(uint8 _maxListedAddresses) {
-        maxListedAddresses = _maxListedAddresses;
+ 
+    uint8 public numAddressesWhitelisted;
+ 
+    constructor(uint8 _maxWhitelistedAddresses) {
+        maxWhitelistedAddresses =  _maxWhitelistedAddresses;
     }
 
-    function addAddressToWhitelist() public {
-        require(
-            !whitelistedAddresses[msg.sender],
-            "SendeAddress is already in the whitelist"
-        );
-        require(
-            numWhitelistedAddresses < maxListedAddresses,
-            "Max whitelist addresses has been reached"
-        );
-
-        whitelistedAddresses[msg.sender] = true;
-        numWhitelistedAddresses += 1;
+    function addAddressToWhitelist() public { 
+        require(!whitelistedAddresses[msg.sender], "Sender has already been whitelisted"); 
+        require(numAddressesWhitelisted < maxWhitelistedAddresses, "More addresses cant be added, limit reached"); 
+        whitelistedAddresses[msg.sender] = true; 
+        numAddressesWhitelisted += 1;
     }
 }
